@@ -44,8 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             width: width,
             child: FlexSlider(
-              pageWidths: [width, width, width],
-              pageHeights: [100, 200, 400],
+              pageWidths: [width, width],
+              pageHeights: [100, 200],
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -58,11 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.cyan,
                     width: width,
                     height: 500,
-                  ),
-                  Container(
-                    color: Colors.blue,
-                    width: width,
-                    height: 600,
                   ),
                 ],
               ),
