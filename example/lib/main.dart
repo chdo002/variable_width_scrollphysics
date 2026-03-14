@@ -1,3 +1,4 @@
+import 'package:example/simple_console.dart';
 import 'package:flutter/material.dart';
 import 'package:variable_width_scrollphysics/scroll_physics.dart';
 
@@ -28,6 +29,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      SimpleConsole().show(context);
+    });
+  }
+
   Widget _page({required double width, required Color color, required int itemCount, required int crossAxisCount}) {
     return Container(
       color: color,
@@ -75,6 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Text('Hello World!'),
+          ElevatedButton(onPressed: () {
+            SimpleConsole().log('Hello World! ${DateTime.now()}');
+          }, child: Text('Log'))
         ],
       )),
     );

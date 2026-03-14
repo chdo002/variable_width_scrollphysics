@@ -52,7 +52,6 @@ class FlexScrollPhysics extends ScrollPhysics {
   @override
   Simulation? createBallisticSimulation(ScrollMetrics position, double velocity) {
     var res = (velocity == 0 && (position.pixels < position.maxScrollExtent) && position.pixels > 0);
-    // 在抬手停止时的动画
     if (res) {
       var leftForScreen1 = position.maxScrollExtent - position.pixels;
       var screen2OffsetX = position.viewportDimension - leftForScreen1;
