@@ -44,14 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             width: width,
             child: FlexSlider(
-              pageWidths: [width, width],
+              pageWidths: [width - 100, width],
               pageHeights: [100, 200],
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     color: Colors.red,
-                    width: width,
+                    width: width - 100,
                     height: 300,
                   ),
                   Container(
