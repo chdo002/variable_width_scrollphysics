@@ -28,6 +28,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Widget _page({required double width, required Color color, required int itemCount, required int crossAxisCount}) {
+    return Container(
+      color: color,
+      width: width,
+      child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.all(10),
+          itemCount: itemCount,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: crossAxisCount, mainAxisSpacing: 10, crossAxisSpacing: 10),
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              color: Colors.white,
+              alignment: Alignment.center,
+              child: Text(index.toString()),
+            );
+          }),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -45,20 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
             width: width,
             child: FlexSlider(
               pageWidths: [width - 100, width],
-              pageHeights: [100, 200],
+              pageHeights: [140, 230],
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    color: Colors.red,
-                    width: width - 100,
-                    height: 300,
-                  ),
-                  Container(
-                    color: Colors.cyan,
-                    width: width,
-                    height: 500,
-                  ),
+                  _page(width: width - 100, color: Colors.red, itemCount: 8, crossAxisCount: 4),
+                  _page(width: width, color: Colors.green, itemCount: 15, crossAxisCount: 5),
                 ],
               ),
             ),
