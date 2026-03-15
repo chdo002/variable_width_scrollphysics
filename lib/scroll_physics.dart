@@ -4,14 +4,14 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:variable_width_scrollphysics/simple_console.dart';
 
-class FlexScrollPhysics extends ScrollPhysics {
-  const FlexScrollPhysics(this.pageWidths, {super.parent});
+class FlexPageScrollPhysics extends ScrollPhysics {
+  const FlexPageScrollPhysics(this.pageWidths, {super.parent});
 
   final List<double> pageWidths;
 
   @override
-  FlexScrollPhysics applyTo(ScrollPhysics? ancestor) {
-    return FlexScrollPhysics(pageWidths, parent: buildParent(ancestor));
+  FlexPageScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return FlexPageScrollPhysics(pageWidths, parent: buildParent(ancestor));
   }
 
   double _getPage(ScrollMetrics position) {
@@ -141,6 +141,22 @@ class _FlexSliderState extends State<FlexSlider> {
   @override
   void initState() {
     super.initState();
+    _initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant FlexSlider oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.scrollController != widget.scrollController) {
+      if (oldWidget.scrollController == null) {
+        _controller.dispose();
+      }
+      _initState();
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  _initState() {
     _valueNotifier.value = widget.pageHeights.first;
     if (widget.scrollController != null) {
       _controller = widget.scrollController!;
@@ -217,7 +233,7 @@ class _FlexSliderState extends State<FlexSlider> {
       behavior: const CupertinoScrollBehavior(),
       child: SingleChildScrollView(
         controller: _controller,
-        physics: FlexScrollPhysics(widget.pageWidths),
+        physics: FlexPageScrollPhysics(widget.pageWidths),
         scrollDirection: Axis.horizontal,
         child: ValueListenableBuilder(
             valueListenable: _valueNotifier,

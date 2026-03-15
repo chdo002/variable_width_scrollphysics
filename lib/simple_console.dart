@@ -24,6 +24,13 @@ class SimpleConsole {
     Overlay.of(context).insert(_entry!);
   }
 
+  void close() {
+    _entry?.remove();
+    _entry = null;
+  }
+
+  bool get isOpen => _entry != null;
+
   void log(String message) {
     final time = DateTime.now().toString().split(' ').last.substring(0, 8);
     _logs.value = [..._logs.value, "[$time] $message"];
