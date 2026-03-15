@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:variable_width_scrollphysics/simple_console.dart';
 
 class FlexScrollPhysics extends ScrollPhysics {
   const FlexScrollPhysics(this.pageWidths, {super.parent});
@@ -46,7 +47,7 @@ class FlexScrollPhysics extends ScrollPhysics {
   }
 
   show(String str) {
-    // DebugInfo.update(str);
+    SimpleConsole().log(str);
   }
 
   @override

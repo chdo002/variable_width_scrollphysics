@@ -8,13 +8,13 @@ class SimpleConsole {
   SimpleConsole._internal();
 
   OverlayEntry? _entry;
-  final ValueNotifier<List<String>> logs = ValueNotifier([]);
+  final ValueNotifier<List<String>> _logs = ValueNotifier([]);
 
   void show(BuildContext context) {
     if (_entry != null) return;
     _entry = OverlayEntry(
       builder: (context) => _ConsoleWidget(
-        logs: logs,
+        logs: _logs,
         onClose: () {
           _entry?.remove();
           _entry = null;
@@ -26,8 +26,8 @@ class SimpleConsole {
 
   void log(String message) {
     final time = DateTime.now().toString().split(' ').last.substring(0, 8);
-    logs.value = [...logs.value, "[$time] $message"];
-    if (logs.value.length > 50) logs.value = logs.value.sublist(1);
+    _logs.value = [..._logs.value, "[$time] $message"];
+    if (_logs.value.length > 50) _logs.value = _logs.value.sublist(1);
   }
 }
 
@@ -42,9 +42,10 @@ class _ConsoleWidget extends StatefulWidget {
 }
 
 class _ConsoleWidgetState extends State<_ConsoleWidget> {
-  Offset offset = const Offset(20, 100);
+  Offset offset = const Offset(20, 400);
   double width = 280.0;
   double height = 200.0;
+  double fontSize = 11;
   bool isMinimized = false; // 是否最小化
 
   final padding = 20.0;
@@ -209,6 +210,32 @@ class _ConsoleWidgetState extends State<_ConsoleWidget> {
 
             const Spacer(),
 
+            if (!isMinimized)
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    fontSize += 1;
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: const Icon(Icons.add, color: Colors.white70, size: 20),
+                ),
+              ),
+
+            if (!isMinimized)
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    fontSize -= 1;
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: const Icon(Icons.remove, color: Colors.white70, size: 20),
+                ),
+              ),
+
             // 右上角清空按钮
             if (!isMinimized)
               GestureDetector(
@@ -244,11 +271,8 @@ class _ConsoleWidgetState extends State<_ConsoleWidget> {
 
   // Parse log entry into timestamp and message parts
   List<String> _parseLogEntry(String entry) {
-    final match = RegExp(r'^\[([\d:]{8})\] (.*)$').firstMatch(entry);
-    if (match != null) {
-      return [match.group(1)!, match.group(2)!];
-    }
-    return ['', entry];
+    final timestamp = entry.substring(0, 10);
+    return [timestamp, entry.substring(11)];
   }
 
   Widget _buildLogList() {
@@ -270,35 +294,17 @@ class _ConsoleWidgetState extends State<_ConsoleWidget> {
                   children: [
                     if (timestamp.isNotEmpty)
                       TextSpan(
-                        text: '[$timestamp] ',
+                        text: timestamp,
                         style: TextStyle(
                           color: Colors.green,
-                          fontSize: 11,
-                          fontFamily: 'monospace',
-                          height: 1.2,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black.withValues(alpha: 0.8),
-                              offset: const Offset(0, 1),
-                              blurRadius: 2,
-                            ),
-                          ],
+                          fontSize: fontSize,
                         ),
                       ),
                     TextSpan(
-                      text: message,
+                      text: ' ' + message,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 11,
-                        fontFamily: 'monospace',
-                        height: 1.2,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black.withValues(alpha: 0.8),
-                            offset: const Offset(0, 1),
-                            blurRadius: 2,
-                          ),
-                        ],
+                        fontSize: fontSize,
                       ),
                     ),
                   ],
