@@ -84,3 +84,8 @@ This package is useful for:
 - Any UI requiring variable-width pages with smooth scrolling
 
 For bugs or feature requests, please file an issue on the [GitHub repository](https://github.com/your-repo/variable_width_scrollphysics).
+
+## Language
+
+- [English](README.md)
+- [中文](README_CN.md)
