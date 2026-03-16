@@ -1,6 +1,6 @@
 name: variable_width_scrollphysics
 description: "A Flutter package that provides custom scroll physics."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/chdo002/variable_width_scrollphysics
 
 environment:
