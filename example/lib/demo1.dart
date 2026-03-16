@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:variable_width_scrollphysics/scroll_physics.dart';
+import 'package:variable_width_scrollphysics/variable_width_scrollphysics.dart';
+import 'package:variable_width_scrollphysics/slider.dart';
 
 class Demo1 extends StatelessWidget {
   const Demo1({super.key});
@@ -30,7 +31,7 @@ class Demo1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Demo1'),
-        FlexSlider(
+        FlexPageSlider(
           pageWidths: [width - 100, width],
           pageHeights: [140, 230],
           child: Row(
