@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'demo1.dart';
 import 'demo2.dart';
 import 'demo3.dart';
+import 'demo4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,11 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            Divider(),
             Demo1(),
             Divider(),
             Demo2(),
             Divider(),
             Demo3(),
+            Divider(),
+            Demo4(),
           ],
         ),
       ),

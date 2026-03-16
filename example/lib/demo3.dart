@@ -12,7 +12,7 @@ class Demo3 extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Demo2'),
+        Text('Demo3'),
         FlexPageSlider(
           pageWidths: [width, width, width],
           pageHeights: [230, 230, 230],
