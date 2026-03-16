@@ -158,10 +158,6 @@ class _ConsoleWidgetState extends State<_ConsoleWidget> {
                       setState(() {
                         final screenWidth = MediaQuery.of(context).size.width;
                         final screenHeight = MediaQuery.of(context).size.height;
-                        final newDx = offset.dx + details.delta.dx;
-                        final newDy = offset.dy + details.delta.dy;
-                        // 确保窗口不会完全移出屏幕
-
                         width = (width + details.delta.dx).clamp(minimizedWidth, screenWidth - padding - offset.dx);
                         height = (height + details.delta.dy).clamp(minimizedHeight, screenHeight - padding - offset.dy);
                       });

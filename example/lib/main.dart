@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'demo1.dart';
 import 'demo2.dart';
+import 'demo3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,14 +55,18 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Console')),
         ],
       ),
-      body: Center(
-          child: Column(
-        children: [
-          Demo1(),
-          Divider(),
-          Demo2(),
-        ],
-      )),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Demo1(),
+            Divider(),
+            Demo2(),
+            Divider(),
+            Demo3(),
+          ],
+        ),
+      ),
     );
   }
 }
