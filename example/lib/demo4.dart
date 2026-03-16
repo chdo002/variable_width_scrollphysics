@@ -18,7 +18,6 @@ class Demo4 extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   width: width,
-                  height: 230,
                   color: Colors.primaries[index],
                 );
               }),
