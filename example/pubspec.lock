@@ -62,6 +62,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_simple_console:
+    dependency: "direct dev"
+    description:
+      name: flutter_simple_console
+      sha256: "0d50c00885c347942ae05e521bff4104886d037cf2f3358a529289e68b53f5ef"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

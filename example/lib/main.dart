@@ -1,6 +1,5 @@
-import 'package:variable_width_scrollphysics/simple_console.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_simple_console/simple_console.dart';
 import 'demo1.dart';
 import 'demo2.dart';
 import 'demo3.dart';

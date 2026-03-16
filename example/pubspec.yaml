@@ -38,6 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_simple_console: ^0.0.1
 
 flutter:
   uses-material-design: true
