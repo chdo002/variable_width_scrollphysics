@@ -15,13 +15,13 @@ class Demo2 extends StatelessWidget {
         Text('Demo2'),
         FlexPageSlider(
           pageWidths: [width - 100, width, width],
-          pageHeights: [140, 230, 230],
+          pageHeights: [160, 250, 250],
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Demo1.page(width: width - 100, color: Colors.red, itemCount: 8, crossAxisCount: 4),
-              Demo1.page(width: width, color: Colors.green, itemCount: 15, crossAxisCount: 5),
-              Demo1.page(width: width, color: Colors.cyan, itemCount: 15, crossAxisCount: 5),
+              Demo1.page(width: width - 100, color: Color(0xFF6366F1), itemCount: 8, crossAxisCount: 4), // 亮靛蓝
+              Demo1.page(width: width, color: Color(0xFF3B82F6), itemCount: 15, crossAxisCount: 5), // 亮蓝色
+              Demo1.page(width: width, color: Color(0xFF8B5CF6), itemCount: 15, crossAxisCount: 5), // 亮紫色
             ],
           ),
         ),

@@ -2,7 +2,7 @@
 
 A Flutter package that provides custom scroll physics and widgets for handling variable-width pages with dynamic height adjustment. Perfect for creating flexible page views where each page can have different widths and heights.
 
-<img src="example.gif" width="300px" alt="Example GIF">
+<img src="demo.gif" width="320" alt="Example GIF">
 
 ## Features
 

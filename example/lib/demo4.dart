@@ -18,7 +18,7 @@ class Demo4 extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   width: width,
-                  color: Colors.primaries[index],
+                  color: [Color(0xFFEC4899), Color(0xFFF59E0B), Color(0xFF10B981)][index], // 粉红、琥珀、翡翠渐变
                 );
               }),
         )

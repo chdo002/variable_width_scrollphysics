@@ -16,9 +16,9 @@ class Demo1 extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: crossAxisCount, mainAxisSpacing: 10, crossAxisSpacing: 10),
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              color: Colors.white,
+              color: Colors.white24,
               alignment: Alignment.center,
-              child: Text(index.toString()),
+              child: Text(index.toString(), style: TextStyle(color: Color(0xFF1E293B))), // 深石板灰文字
             );
           }),
     );
@@ -33,12 +33,12 @@ class Demo1 extends StatelessWidget {
         Text('Demo1'),
         FlexPageSlider(
           pageWidths: [width - 100, width],
-          pageHeights: [140, 230],
+          pageHeights: [160, 250],
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              page(width: width - 100, color: Colors.red, itemCount: 8, crossAxisCount: 4),
-              page(width: width, color: Colors.green, itemCount: 15, crossAxisCount: 5),
+              page(width: width - 100, color: Color(0xFF6366F1), itemCount: 8, crossAxisCount: 4), // 亮靛蓝
+              page(width: width, color: Color(0xFF3B82F6), itemCount: 15, crossAxisCount: 5), // 亮蓝色
             ],
           ),
         ),
